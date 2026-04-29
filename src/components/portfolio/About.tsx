@@ -6,23 +6,25 @@ const About = () => {
           <div className="lg:col-span-4">
             <div className="text-xs font-mono text-primary tracking-widest uppercase">/ 01 — About</div>
             <h2 className="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tight">
-              A frontend developer who cares about the details.
+              A full-stack developer with a frontend soul.
             </h2>
           </div>
 
           <div className="lg:col-span-7 lg:col-start-6 space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
-              I'm a UI Engineer currently at <span className="text-foreground">United Interactive LLC / iPro Games</span>,
-              where I build interactive interfaces for casino gaming and segmentation admin consoles using React and jQuery.
+              I'm a Full-Stack Developer currently at <span className="text-foreground">United Interactive LLC / iPro Games</span>,
+              where I build interactive interfaces for casino gaming and segmentation admin consoles using React and jQuery —
+              while also contributing to API integrations and backend workflows.
             </p>
             <p>
-              My approach is grounded in component-driven architecture, performance, and tight collaboration with
-              designers and backend teams. I enjoy turning ambiguous requirements into clean, accessible UIs that
-              real users — and stakeholders — actually love.
+              My sweet spot is the <span className="text-foreground">frontend</span>: component-driven architecture,
+              performance, accessibility, and pixel-level polish. But I'm equally comfortable on the
+              <span className="text-foreground"> backend</span> — designing REST APIs with Node.js, modeling data in
+              MongoDB and MySQL, and wiring up services like AWS S3/CloudFront, Stripe, Mailchimp and Zencoder.
             </p>
             <p>
-              Outside of shipping features, I review code, run usability tests, and obsess over making dashboards
-              feel responsive and trustworthy.
+              That full-stack range means I can own a feature end-to-end — from schema and API to the final interaction —
+              and collaborate fluently with both design and backend teams.
             </p>
 
             <div className="pt-6 grid sm:grid-cols-2 gap-4">

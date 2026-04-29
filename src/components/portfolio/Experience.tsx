@@ -1,7 +1,7 @@
 const roles = [
   {
     company: "United Interactive LLC · iPro Games India Pvt Ltd",
-    role: "UI Engineer",
+    role: "Full-Stack Developer (Frontend-focused)",
     location: "Coimbatore, India",
     period: "Dec 2022 — Present",
     bullets: [
@@ -14,7 +14,7 @@ const roles = [
   },
   {
     company: "Aximsoft India Pvt Ltd",
-    role: "Jr Developer — Applications",
+    role: "Jr Full-Stack Developer — Applications",
     location: "Coimbatore, India",
     period: "Dec 2020 — Oct 2022",
     bullets: [

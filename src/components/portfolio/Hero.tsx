@@ -32,8 +32,9 @@ const Hero = () => {
             className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-up"
             style={{ animationDelay: "160ms" }}
           >
-            I'm <span className="text-foreground font-medium">Jawahar Babu D</span> — a UI Engineer with 4+ years of
-            experience crafting React applications, admin dashboards, and gaming UIs that feel effortless to use.
+            I'm <span className="text-foreground font-medium">Jawahar Babu D</span> — a Full-Stack Developer
+            (frontend-focused) with 5+ years of experience building React applications end-to-end — from polished UIs
+            to Node.js APIs, MongoDB data layers, and cloud integrations.
           </p>
 
           <div
@@ -62,9 +63,9 @@ const Hero = () => {
             style={{ animationDelay: "320ms" }}
           >
             {[
-              { k: "4+", v: "Years experience" },
+              { k: "5+", v: "Years experience" },
               { k: "10+", v: "Projects shipped" },
-              { k: "React", v: "Specialist" },
+              { k: "Full", v: "Stack capable" },
               { k: "MBA", v: "Info Systems" },
             ].map((s) => (
               <div key={s.v} className="border-l-2 border-primary/40 pl-4">
