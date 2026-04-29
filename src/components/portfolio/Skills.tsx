@@ -1,0 +1,74 @@
+import { Code2, Palette, Server, Wrench } from "lucide-react";
+
+const groups = [
+  {
+    icon: Code2,
+    title: "Frontend",
+    items: ["React.js", "JavaScript", "TypeScript", "Redux", "React Hooks", "jQuery", "HTML", "CSS"],
+  },
+  {
+    icon: Palette,
+    title: "UI / UX & Design",
+    items: ["Figma", "Responsive Design", "Component Architecture", "Material UI", "Bootstrap"],
+  },
+  {
+    icon: Server,
+    title: "Backend & Integration",
+    items: ["RESTful APIs", "Node.js", "MongoDB", "MySQL", "JSON"],
+  },
+  {
+    icon: Wrench,
+    title: "Tools & Methods",
+    items: ["Git", "Agile / Scrum", "AWS (familiar)", "CI/CD exposure", "Unit Testing"],
+  },
+];
+
+const Skills = () => {
+  return (
+    <section id="skills" className="py-24 md:py-32 relative">
+      <div className="container">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div>
+            <div className="text-xs font-mono text-primary tracking-widest uppercase">/ 02 — Skills</div>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl font-bold tracking-tight">
+              Tools I reach for.
+            </h2>
+          </div>
+          <p className="text-muted-foreground max-w-md">
+            A practical stack honed across casino platforms, dashboards, leave management systems, and
+            agriculture web apps.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {groups.map((g) => (
+            <div
+              key={g.title}
+              className="group relative glass rounded-2xl p-6 hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 shadow-card"
+            >
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-radial pointer-events-none" />
+              <div className="relative">
+                <div className="w-11 h-11 rounded-xl bg-secondary grid place-items-center text-primary mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <g.icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-display text-lg font-semibold">{g.title}</h3>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {g.items.map((it) => (
+                    <li
+                      key={it}
+                      className="text-xs font-mono px-2.5 py-1 rounded-md bg-secondary/60 text-muted-foreground border border-border"
+                    >
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
