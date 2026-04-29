@@ -12,7 +12,7 @@ const About = () => {
 
           <div className="lg:col-span-7 lg:col-start-6 space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
-              I'm a Full-Stack Developer currently at <span className="text-foreground">United Interactive LLC / iPro Games</span>,
+              I'm a UI Engineer currently at <span className="text-foreground">United Interactive LLC / iPro Games</span>,
               where I build interactive interfaces for casino gaming and segmentation admin consoles using React and jQuery —
               while also contributing to API integrations and backend workflows.
             </p>
