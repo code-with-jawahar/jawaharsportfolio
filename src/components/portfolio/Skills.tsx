@@ -4,7 +4,12 @@ const groups = [
   {
     icon: Code2,
     title: "Frontend",
-    items: ["React.js", "JavaScript", "TypeScript", "Redux", "React Hooks", "jQuery", "HTML", "CSS"],
+    items: ["React.js", "JavaScript", "TypeScript", "Redux", "React Hooks", "jQuery", "HTML5", "CSS3"],
+  },
+  {
+    icon: Server,
+    title: "Backend",
+    items: ["Node.js", "Express", "RESTful APIs", "MongoDB", "MySQL", "JSON", "Auth / JWT"],
   },
   {
     icon: Palette,
@@ -12,14 +17,9 @@ const groups = [
     items: ["Figma", "Responsive Design", "Component Architecture", "Material UI", "Bootstrap"],
   },
   {
-    icon: Server,
-    title: "Backend & Integration",
-    items: ["RESTful APIs", "Node.js", "MongoDB", "MySQL", "JSON"],
-  },
-  {
     icon: Wrench,
-    title: "Tools & Methods",
-    items: ["Git", "Agile / Scrum", "AWS (familiar)", "CI/CD exposure", "Unit Testing"],
+    title: "Cloud, Tools & Methods",
+    items: ["AWS S3", "CloudFront", "Stripe", "Mailchimp", "Zencoder", "Git", "Agile / Scrum", "CI/CD"],
   },
 ];
 

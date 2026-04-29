@@ -6,28 +6,28 @@ const projects = [
     summary:
       "Interactive casino gaming interface with user registration, KYC, payment processing, and real-time gameplay. Built for high performance across devices.",
     tags: ["React.js", "Performance", "Responsive", "Real-time"],
-    role: "UI Engineer",
+    role: "Frontend",
   },
   {
     title: "Segmentation Admin Console",
     summary:
-      "Administrative dashboard for monitoring user activity and financial KPIs, giving the management team real-time operational insight.",
-    tags: ["React.js", "Dashboards", "Data Viz"],
-    role: "UI Engineer",
+      "Administrative dashboard for monitoring user activity and financial KPIs, with REST API integration giving the management team real-time operational insight.",
+    tags: ["React.js", "REST APIs", "Dashboards", "Data Viz"],
+    role: "Full-Stack",
   },
   {
     title: "GO SWIM — Online Training",
     summary:
-      "Swim coaching platform with instructional video streaming and personalized resources for swimmers of all levels.",
+      "Swim coaching platform with instructional video streaming and personalized resources. Built end-to-end with React on the frontend and Node.js + MongoDB powering the API and content layer.",
     tags: ["React.js", "Node.js", "MongoDB", "REST APIs"],
-    role: "Frontend & QA",
+    role: "Full-Stack & QA",
   },
   {
     title: "Employee Absence Tracking",
     summary:
-      "Leave management system with employee requests, manager approvals, secure auth and real-time form validation.",
-    tags: ["React.js", "Material UI", "Node.js", "MongoDB"],
-    role: "Full-stack",
+      "Leave management system with employee requests, manager approvals, secure auth, and real-time form validation — built end-to-end on the MERN stack.",
+    tags: ["React.js", "Node.js", "MongoDB", "Material UI"],
+    role: "Full-Stack",
   },
 ];
 
