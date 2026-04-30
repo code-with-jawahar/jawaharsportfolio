@@ -48,25 +48,25 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 stagger">
           {projects.map((p, i) => (
             <article
               key={p.title}
-              className="group relative glass rounded-3xl p-8 overflow-hidden shadow-card hover:border-primary/40 transition-all duration-500 hover:-translate-y-1"
+              className="group relative glass gradient-border rounded-3xl p-8 overflow-hidden shadow-card card-hover"
             >
-              <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-primary/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-primary/15 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
               <div className="relative">
                 <div className="flex items-start justify-between gap-4">
                   <div className="text-xs font-mono text-muted-foreground">
                     {String(i + 1).padStart(2, "0")} / {p.role}
                   </div>
-                  <div className="w-10 h-10 rounded-full glass grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <div className="w-10 h-10 rounded-full glass grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:rotate-45 group-hover:scale-110 transition-all duration-500">
                     <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>
 
-                <h3 className="mt-6 font-display text-2xl font-semibold leading-tight">
+                <h3 className="mt-6 font-display text-2xl font-semibold leading-tight group-hover:text-primary transition-colors duration-500">
                   {p.title}
                 </h3>
                 <p className="mt-4 text-muted-foreground leading-relaxed">{p.summary}</p>

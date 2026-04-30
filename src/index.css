@@ -124,19 +124,35 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    padding: 1px;
-    background: conic-gradient(from var(--angle, 0deg), hsl(var(--primary) / 0.6), hsl(var(--accent) / 0.6), hsl(var(--primary-glow) / 0.6), hsl(var(--primary) / 0.6));
+    padding: 1.5px;
+    background: conic-gradient(from var(--angle, 0deg), hsl(var(--primary) / 0.7), hsl(var(--accent) / 0.7), hsl(var(--primary-glow) / 0.7), hsl(var(--primary) / 0.7));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
-    opacity: 0;
+    opacity: 0.5;
     transition: opacity 0.5s ease;
-    animation: spin-slow 8s linear infinite;
+    animation: spin-slow 6s linear infinite;
     pointer-events: none;
   }
   .gradient-border:hover::before {
     opacity: 1;
   }
+
+  .float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fade-up 0.7s var(--transition-smooth) forwards;
+  }
+  .stagger > *:nth-child(1) { animation-delay: 0.05s; }
+  .stagger > *:nth-child(2) { animation-delay: 0.15s; }
+  .stagger > *:nth-child(3) { animation-delay: 0.25s; }
+  .stagger > *:nth-child(4) { animation-delay: 0.35s; }
+  .stagger > *:nth-child(5) { animation-delay: 0.45s; }
+  .stagger > *:nth-child(6) { animation-delay: 0.55s; }
 
   .reveal {
     opacity: 0;
