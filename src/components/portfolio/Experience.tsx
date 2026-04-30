@@ -42,13 +42,13 @@ const Experience = () => {
           <div className="absolute left-3 md:left-4 top-2 bottom-2 w-px bg-gradient-to-b from-primary via-border to-transparent" />
 
           <div className="space-y-12">
-            {roles.map((r) => (
-              <article key={r.company} className="relative pl-12 md:pl-16">
-                <div className="absolute left-0 md:left-1 top-2 w-6 h-6 md:w-8 md:h-8 rounded-full bg-background border-2 border-primary grid place-items-center shadow-glow">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
+            {roles.map((r, i) => (
+              <article key={r.company} className="relative pl-12 md:pl-16 group" style={{ transitionDelay: `${i * 100}ms` }}>
+                <div className="absolute left-0 md:left-1 top-2 w-6 h-6 md:w-8 md:h-8 rounded-full bg-background border-2 border-primary grid place-items-center shadow-glow group-hover:scale-110 transition-transform duration-500">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 </div>
 
-                <div className="glass rounded-2xl p-6 md:p-8 shadow-card">
+                <div className="glass gradient-border rounded-2xl p-6 md:p-8 shadow-card card-hover">
                   <div className="flex flex-wrap items-baseline justify-between gap-3 mb-4">
                     <div>
                       <h3 className="font-display text-xl md:text-2xl font-semibold">{r.role}</h3>

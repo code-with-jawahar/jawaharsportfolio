@@ -40,14 +40,14 @@ const Contact = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="grid place-items-center w-11 h-11 rounded-xl glass hover:text-primary transition-colors"
+                className="grid place-items-center w-11 h-11 rounded-xl glass hover:text-primary hover-lift transition-all"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
                 href="mailto:jawaharbabu2604@gmail.com"
                 aria-label="Email"
-                className="grid place-items-center w-11 h-11 rounded-xl glass hover:text-primary transition-colors"
+                className="grid place-items-center w-11 h-11 rounded-xl glass hover:text-primary hover-lift transition-all"
               >
                 <Mail className="w-4 h-4" />
               </a>
