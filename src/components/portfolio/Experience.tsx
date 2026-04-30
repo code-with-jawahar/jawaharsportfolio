@@ -1,7 +1,7 @@
 const roles = [
   {
     company: "United Interactive LLC · iPro Games India Pvt Ltd",
-    role: "Full-Stack Developer (Frontend-focused)",
+    role: "UI Engineer",
     location: "Coimbatore, India",
     period: "Dec 2022 — Present",
     bullets: [
