@@ -25,7 +25,7 @@ const Hero = () => {
             <br />
             interactive
             <br />
-            <span className="text-gradient">web interfaces.</span>
+            <span className="text-gradient bg-[length:200%_auto]" style={{ animation: "gradient-shift 8s ease-in-out infinite" }}>web interfaces.</span>
           </h1>
 
           <p
@@ -67,8 +67,12 @@ const Hero = () => {
               { k: "10+", v: "Projects shipped" },
               { k: "Full", v: "Stack capable" },
               { k: "MBA", v: "Info Systems" },
-            ].map((s) => (
-              <div key={s.v} className="border-l-2 border-primary/40 pl-4">
+            ].map((s, i) => (
+              <div
+                key={s.v}
+                className="border-l-2 border-primary/40 pl-4 hover:border-primary transition-all duration-500 hover:translate-x-1"
+                style={{ animationDelay: `${400 + i * 80}ms` }}
+              >
                 <div className="font-display text-2xl md:text-3xl font-bold">{s.k}</div>
                 <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
               </div>

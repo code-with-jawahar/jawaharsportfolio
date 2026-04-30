@@ -1,4 +1,5 @@
 import { Code2, Palette, Server, Wrench } from "lucide-react";
+import { useReveal } from "@/hooks/use-reveal";
 
 const groups = [
   {
@@ -41,14 +42,15 @@ const Skills = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {groups.map((g) => (
+          {groups.map((g, i) => (
             <div
               key={g.title}
-              className="group relative glass rounded-2xl p-6 hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 shadow-card"
+              className="group relative glass gradient-border rounded-2xl p-6 card-hover shadow-card"
+              style={{ transitionDelay: `${i * 60}ms` }}
             >
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-radial pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-radial pointer-events-none" />
               <div className="relative">
-                <div className="w-11 h-11 rounded-xl bg-secondary grid place-items-center text-primary mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <div className="w-11 h-11 rounded-xl bg-secondary grid place-items-center text-primary mb-5 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110 transition-all duration-500">
                   <g.icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-display text-lg font-semibold">{g.title}</h3>
