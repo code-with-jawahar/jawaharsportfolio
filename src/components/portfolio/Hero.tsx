@@ -7,6 +7,10 @@ const Hero = () => {
       <div className="absolute inset-0 bg-grid pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-radial pointer-events-none" />
 
+      {/* Floating decorative orbs */}
+      <div className="absolute top-1/4 right-[8%] w-72 h-72 rounded-full bg-primary/20 blur-3xl float-slow pointer-events-none" />
+      <div className="absolute bottom-1/4 right-[20%] w-56 h-56 rounded-full bg-accent/20 blur-3xl float-slow pointer-events-none" style={{ animationDelay: "2s" }} />
+
       <div className="container relative">
         <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs text-muted-foreground mb-8 animate-fade-up">
