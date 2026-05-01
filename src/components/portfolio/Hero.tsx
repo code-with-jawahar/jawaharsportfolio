@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
-      <div className="absolute inset-0 bg-grid pointer-events-none" />
+      <div className="aurora" />
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-60" />
       <div className="absolute inset-0 bg-gradient-radial pointer-events-none" />
+      <div className="noise" />
 
       {/* Floating decorative orbs */}
       <div className="absolute top-1/4 right-[8%] w-72 h-72 rounded-full bg-primary/20 blur-3xl float-slow pointer-events-none" />
