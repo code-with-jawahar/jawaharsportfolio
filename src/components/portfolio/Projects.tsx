@@ -14,14 +14,14 @@ const projects = [
     summary:
       "Administrative dashboard for monitoring user activity and financial KPIs, with REST API integration giving the management team real-time operational insight.",
     tags: ["React.js", "REST APIs", "Dashboards", "Data Viz"],
-    role: "Full-Stack",
+    role: 
   },
   {
     title: "GO SWIM — Online Training",
     summary:
       "Swim coaching platform with instructional video streaming and personalized resources. Built end-to-end with React on the frontend and Node.js + MongoDB powering the API and content layer.",
     tags: ["React.js", "Node.js", "MongoDB", "REST APIs"],
-    role: "Full-Stack & QA",
+    role: "Backend & QA",
   },
   {
     title: "Employee Absence Tracking",
