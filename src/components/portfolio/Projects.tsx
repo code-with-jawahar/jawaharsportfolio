@@ -14,7 +14,7 @@ const projects = [
     summary:
       "Administrative dashboard for monitoring user activity and financial KPIs, with REST API integration giving the management team real-time operational insight.",
     tags: ["React.js", "REST APIs", "Dashboards", "Data Viz"],
-    role: 
+    role: "Frontend"
   },
   {
     title: "GO SWIM — Online Training",
