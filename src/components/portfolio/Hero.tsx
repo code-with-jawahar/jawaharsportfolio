@@ -1,11 +1,16 @@
-import { ArrowRight, Download, MapPin } from "lucide-react";
+import { ArrowRight, Download, MapPin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useMagnetic } from "@/hooks/use-magnetic";
 
 const Hero = () => {
+  const magneticPrimary = useMagnetic<HTMLDivElement>(0.2);
+  const magneticSecondary = useMagnetic<HTMLDivElement>(0.2);
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
-      <div className="absolute inset-0 bg-grid pointer-events-none" />
+      <div className="aurora" />
+      <div className="absolute inset-0 bg-grid pointer-events-none opacity-60" />
       <div className="absolute inset-0 bg-gradient-radial pointer-events-none" />
+      <div className="noise" />
 
       {/* Floating decorative orbs */}
       <div className="absolute top-1/4 right-[8%] w-72 h-72 rounded-full bg-primary/20 blur-3xl float-slow pointer-events-none" />
@@ -14,6 +19,7 @@ const Hero = () => {
       <div className="container relative">
         <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs text-muted-foreground mb-8 animate-fade-up">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
@@ -45,16 +51,21 @@ const Hero = () => {
             className="mt-10 flex flex-wrap items-center gap-4 animate-fade-up"
             style={{ animationDelay: "240ms" }}
           >
-            <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow rounded-full h-12 px-6 font-medium">
-              <a href="#projects">
-                View my work <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full h-12 px-6 glass border-border hover:bg-secondary">
-              <a href="#contact">
-                <Download className="mr-2 w-4 h-4" /> Get in touch
-              </a>
-            </Button>
+            <div ref={magneticPrimary} className="magnetic">
+              <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow rounded-full h-12 px-6 font-medium group">
+                <a href="#projects">
+                  View my work
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+            </div>
+            <div ref={magneticSecondary} className="magnetic">
+              <Button asChild variant="outline" size="lg" className="rounded-full h-12 px-6 glass border-border hover:bg-secondary">
+                <a href="#contact">
+                  <Download className="mr-2 w-4 h-4" /> Get in touch
+                </a>
+              </Button>
+            </div>
 
             <div className="flex items-center gap-2 text-sm text-muted-foreground ml-auto">
               <MapPin className="w-4 h-4 text-primary" />
