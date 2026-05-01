@@ -2,28 +2,20 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    hmr: {
-      overlay: false,
-    },
   },
-  plugins: [react()], // ← removed lovable-tagger (Lovable-only plugin)
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-    dedupe: [
-      "react",
-      "react-dom",
-      "react/jsx-runtime",
-      "react/jsx-dev-runtime",
-      "@tanstack/react-query",
-      "@tanstack/query-core",
-    ],
   },
-  base: '/jawaharsportfolio/', // ✅ already correct
+  base: '/jawaharsportfolio/',
+  build: {
+    outDir: 'dist',      // ← explicitly set output folder
+    emptyOutDir: true,   // ← clean dist before each build
+  },
 }));
