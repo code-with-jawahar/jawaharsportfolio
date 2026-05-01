@@ -1,97 +1,141 @@
-import { ArrowRight, Download, MapPin, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useMagnetic } from "@/hooks/use-magnetic";
+import { useEffect, useState } from "react";
+import { ArrowDown, MapPin } from "lucide-react";
+
+const lines = [
+  { p: "$", t: "whoami" },
+  { p: ">", t: "Jawahar Babu D — UI Engineer (5+ yrs)" },
+  { p: "$", t: "cat skills.json" },
+  { p: ">", t: "{ react, typescript, node, mongo, aws }" },
+  { p: "$", t: "echo $STATUS" },
+  { p: ">", t: "available_for_hire = true" },
+];
 
 const Hero = () => {
-  const magneticPrimary = useMagnetic<HTMLDivElement>(0.2);
-  const magneticSecondary = useMagnetic<HTMLDivElement>(0.2);
+  const [typed, setTyped] = useState<string[]>([]);
+  const [current, setCurrent] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+    let timeouts: ReturnType<typeof setTimeout>[] = [];
+
+    const run = async () => {
+      for (let i = 0; i < lines.length; i++) {
+        const full = `${lines[i].p}  ${lines[i].t}`;
+        for (let c = 0; c <= full.length; c++) {
+          if (cancelled) return;
+          await new Promise<void>((res) => {
+            const id = setTimeout(() => res(), lines[i].p === "$" ? 28 : 18);
+            timeouts.push(id);
+          });
+          setCurrent(full.slice(0, c));
+        }
+        if (cancelled) return;
+        setTyped((prev) => [...prev, full]);
+        setCurrent("");
+        await new Promise<void>((res) => {
+          const id = setTimeout(() => res(), 250);
+          timeouts.push(id);
+        });
+      }
+    };
+    run();
+    return () => { cancelled = true; timeouts.forEach(clearTimeout); };
+  }, []);
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
-      <div className="aurora" />
-      <div className="absolute inset-0 bg-grid pointer-events-none opacity-60" />
-      <div className="absolute inset-0 bg-gradient-radial pointer-events-none" />
-      <div className="noise" />
-
-      {/* Floating decorative orbs */}
-      <div className="absolute top-1/4 right-[8%] w-72 h-72 rounded-full bg-primary/20 blur-3xl float-slow pointer-events-none" />
-      <div className="absolute bottom-1/4 right-[20%] w-56 h-56 rounded-full bg-accent/20 blur-3xl float-slow pointer-events-none" style={{ animationDelay: "2s" }} />
-
+    <section id="home" className="relative min-h-screen pt-24 pb-16 overflow-hidden bg-grid-paper">
       <div className="container relative">
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs text-muted-foreground mb-8 animate-fade-up">
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-            </span>
-            Available for new opportunities
-          </div>
-
-          <h1
-            className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] animate-fade-up"
-            style={{ animationDelay: "80ms" }}
-          >
-            Building fast,
-            <br />
-            interactive
-            <br />
-            <span className="text-gradient bg-[length:200%_auto]" style={{ animation: "gradient-shift 8s ease-in-out infinite" }}>web interfaces.</span>
-          </h1>
-
-          <p
-            className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-up"
-            style={{ animationDelay: "160ms" }}
-          >
-            I'm <span className="text-foreground font-medium">Jawahar Babu D</span> — a Full-Stack Developer
-            (frontend-focused) with 5+ years of experience building React applications end-to-end — from polished UIs
-            to Node.js APIs, MongoDB data layers, and cloud integrations.
-          </p>
-
-          <div
-            className="mt-10 flex flex-wrap items-center gap-4 animate-fade-up"
-            style={{ animationDelay: "240ms" }}
-          >
-            <div ref={magneticPrimary} className="magnetic">
-              <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground hover:opacity-90 shadow-glow rounded-full h-12 px-6 font-medium group">
-                <a href="#projects">
-                  View my work
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </Button>
+        {/* Top metadata strip */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-foreground brutal-flat mb-8 text-[10px] md:text-xs font-mono">
+          {[
+            { k: "ROLE", v: "UI ENGINEER" },
+            { k: "BASED", v: "COIMBATORE, IN" },
+            { k: "EXP", v: "5+ YEARS" },
+            { k: "STACK", v: "REACT · NODE · MONGO" },
+          ].map((m) => (
+            <div key={m.k} className="bg-background px-3 py-2">
+              <div className="text-muted-foreground">{m.k}</div>
+              <div className="font-semibold mt-0.5">{m.v}</div>
             </div>
-            <div ref={magneticSecondary} className="magnetic">
-              <Button asChild variant="outline" size="lg" className="rounded-full h-12 px-6 glass border-border hover:bg-secondary">
-                <a href="#contact">
-                  <Download className="mr-2 w-4 h-4" /> Get in touch
-                </a>
-              </Button>
-            </div>
+          ))}
+        </div>
 
-            <div className="flex items-center gap-2 text-sm text-muted-foreground ml-auto">
-              <MapPin className="w-4 h-4 text-primary" />
-              Coimbatore, India
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          {/* Left: huge headline */}
+          <div className="lg:col-span-7">
+            <div className="text-xs font-mono text-muted-foreground mb-4">[ PORTFOLIO / 2025 ]</div>
+            <h1 className="font-mono font-bold tracking-tighter leading-[0.85] text-[14vw] md:text-[9vw] lg:text-[7.5vw]">
+              <span className="block">JAWAHAR</span>
+              <span className="block">BABU<span className="text-primary">.</span></span>
+              <span className="block font-serif-display font-normal tracking-tight text-[10vw] md:text-[7vw] lg:text-[5.5vw]">
+                building things,
+              </span>
+              <span className="block font-serif-display font-normal tracking-tight text-[10vw] md:text-[7vw] lg:text-[5.5vw]">
+                <span className="underline decoration-primary decoration-[6px] underline-offset-[10px]">on the web</span>.
+              </span>
+            </h1>
+
+            <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+              Full-stack developer (frontend-leaning) crafting fast, accessible React apps —
+              from polished UIs to Node.js APIs and cloud integrations.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <a href="#projects"
+                className="inline-flex items-center gap-2 brutal-lg bg-primary text-primary-foreground px-6 py-3 font-bold text-sm uppercase tracking-wider">
+                See the work <ArrowDown className="w-4 h-4" />
+              </a>
+              <a href="#contact"
+                className="inline-flex items-center gap-2 brutal px-6 py-3 font-bold text-sm uppercase tracking-wider">
+                Say hello
+              </a>
+              <span className="ml-2 inline-flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
+                <MapPin className="w-3.5 h-3.5" /> Coimbatore, IN
+              </span>
             </div>
           </div>
 
-          <div
-            className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl animate-fade-up"
-            style={{ animationDelay: "320ms" }}
-          >
-            {[
-              { k: "5+", v: "Years experience" },
-              { k: "10+", v: "Projects shipped" },
-              { k: "Full", v: "Stack capable" },
-              { k: "MBA", v: "Info Systems" },
-            ].map((s, i) => (
-              <div
-                key={s.v}
-                className="border-l-2 border-primary/40 pl-4 hover:border-primary transition-all duration-500 hover:translate-x-1"
-                style={{ animationDelay: `${400 + i * 80}ms` }}
-              >
-                <div className="font-display text-2xl md:text-3xl font-bold">{s.k}</div>
-                <div className="text-xs text-muted-foreground mt-1">{s.v}</div>
+          {/* Right: terminal */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <div className="brutal-lg overflow-hidden">
+              <div className="flex items-center gap-1.5 px-3 py-2 bg-foreground text-background">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+                <span className="ml-3 text-[11px] font-mono opacity-80">~/jawahar — zsh</span>
               </div>
-            ))}
+              <div className="p-4 md:p-5 bg-background min-h-[260px] text-[13px] font-mono leading-relaxed">
+                {typed.map((l, i) => (
+                  <div key={i} className={l.startsWith("$") ? "" : "text-primary-foreground bg-foreground inline-block px-1 my-0.5"}>
+                    {l.startsWith("$") ? (
+                      <><span className="text-primary mr-1">{l.slice(0, 1)}</span>{l.slice(1)}</>
+                    ) : l}
+                  </div>
+                ))}
+                {current && (
+                  <div className={current.startsWith("$") ? "blink-caret" : "text-primary-foreground bg-foreground inline-block px-1 blink-caret"}>
+                    {current.startsWith("$") ? (
+                      <><span className="text-primary mr-1">{current.slice(0, 1)}</span>{current.slice(1)}</>
+                    ) : current}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* stats */}
+            <div className="grid grid-cols-2 mt-4 gap-3">
+              {[
+                { k: "10+", v: "PROJECTS SHIPPED" },
+                { k: "5+", v: "YEARS BUILDING" },
+                { k: "MBA", v: "INFO SYSTEMS" },
+                { k: "∞", v: "CUPS OF CHAI" },
+              ].map((s) => (
+                <div key={s.v} className="brutal p-3">
+                  <div className="text-2xl font-bold">{s.k}</div>
+                  <div className="text-[10px] text-muted-foreground mt-0.5">{s.v}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
