@@ -35,6 +35,15 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2">
           <a
+            href="https://github.com/code-with-jawahar"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+            className="grid place-items-center w-10 h-10 rounded-lg glass hover:text-primary transition-colors"
+          >
+            <Github className="w-4 h-4" />
+          </a>
+          <a
             href="https://www.linkedin.com/in/jawahar-babu-23a5a9215"
             target="_blank"
             rel="noreferrer"

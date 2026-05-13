@@ -36,6 +36,15 @@ const Contact = () => {
 
             <div className="mt-10 flex items-center gap-3">
               <a
+                href="https://github.com/code-with-jawahar"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                className="grid place-items-center w-11 h-11 rounded-xl glass hover:text-primary hover-lift transition-all"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+              <a
                 href="https://www.linkedin.com/in/jawahar-babu-23a5a9215"
                 target="_blank"
                 rel="noreferrer"
